@@ -2,8 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\SecondTestController;
 //Web Pages Route
+Route::get('invoke', TestController::class);
+Route::resource('re', SecondTestController::class);
 Route::controller(WebController::class)->group(function(){
+  
+  
+  Route::get('/{name}/{tagline}', 'index')->name('home');
   Route::get('/', 'index')->name('home');
  // Route::post('/school-stats', 'stats')->name('home.stats');
 });
@@ -14,7 +21,7 @@ Route::get('/about', function(){
 //  return view('about', compact('name', 'email'));
   return view('about', ['name' => $name, 'email' => $email]);
 });
-Route::view('/test', 'about', ['name' => 'Presh', 'email' => 'tester@gmail.com']);
+Route::view('/test', 'test');
 /**
  * 
  * Route::get('/test', function(){
