@@ -3,17 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SecondTestController;
+use App\Http\Controllers\TeachersController;
+use App\Models\Teachers;
 //Web Pages Route
-Route::get('invoke', TestController::class);
-Route::resource('re', SecondTestController::class);
-Route::controller(WebController::class)->group(function(){
+//Route::get('invoke', TestController::class);
+
+//Route::resource('re', SecondTestController::class);
+/*** Route::controller(WebController::class)->group(function(){
   
   
   Route::get('/{name}/{tagline}', 'index')->name('home');
   Route::get('/', 'index')->name('home');
  // Route::post('/school-stats', 'stats')->name('home.stats');
 });
+***/
 Route::get('/about', function(){
   $name = "Presh";
   $email = "tester@gmail.com";
@@ -36,6 +41,14 @@ Route::get('/students/{id}', function($id){
 })->name('details.student');
 });
 */
+Route::get('teachers', [TeachersController::class, 'index']);
+Route::controller(StudentController::class)->prefix('students')->group(function(){
+    Route::get('all', 'index');
+Route::get('create', 'addData');
+  //  Route::get('show/{id}', 'show');
+   // Route::get('update/{id}', 'update');
+  });
 Route::fallback(function(){
   return view('404');
+  
 });
