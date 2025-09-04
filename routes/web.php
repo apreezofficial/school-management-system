@@ -45,6 +45,9 @@ Route::get('teachers', [TeachersController::class, 'index']);
 Route::controller(StudentController::class)->prefix('students')->group(function(){
     Route::get('all', 'index');
 Route::get('create', 'addData');
+Route::get('update', 'update');
+Route::get('stats', 'stats');
+Route::get('delete1', 'delete1');
   //  Route::get('show/{id}', 'show');
    // Route::get('update/{id}', 'update');
   });

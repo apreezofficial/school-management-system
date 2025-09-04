@@ -10,7 +10,9 @@ class StudentController extends Controller
 {
   public function index(){
     $items = DB::table('students')
-    ->select('id', 'name')
+    ->where(function ($query){
+      $query->whereAll(['age', 'id', 'user_id'], '>=', 4);
+    })
  //   ->where('id', '>', 2)
   //  ->orwhere('id', '=', 1)
     ->get();
@@ -28,9 +30,16 @@ public function addData(){
     );
     return 'yeah..';
 }
-public function updateData(){
-  $item = DB::table('students')->where('id', 2)->update([
-    
-    ])
+public function stats(){
+ $items = DB::table('students')->count();   return $items;
+}
+public function update(){
+  DB::table('students')->where('id', 2)->update([
+    'name' => 'Updated name',
+    ]);
+    return 'apx';
+}
+public function delete1(){
+  DB::table('students')->where('id', 2)->delete();
 }
 }
