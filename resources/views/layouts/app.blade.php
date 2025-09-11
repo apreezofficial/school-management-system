@@ -23,7 +23,7 @@
         </nav>
 @yield('content')
 <script>
-  setTimeout(window.alert('Test', 200));
+  
 </script>
 @yield('scripts')
   </head>

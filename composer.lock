@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c514d8f7b9fc5970bdd94287905ef584",
+    "content-hash": "63f588924ed880eea7a2adbdf6c6d8af",
     "packages": [
+        {
+            "name": "awtechs/datasource",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lordeagle4/datasource.git",
+                "reference": "389022bc9789f00352b95b1fd5d42e505e40bb3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lordeagle4/datasource/zipball/389022bc9789f00352b95b1fd5d42e505e40bb3c",
+                "reference": "389022bc9789f00352b95b1fd5d42e505e40bb3c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Awtechs\\Datasource\\Providers\\DatasourceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Awtechs\\Datasource\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Ugochukwu",
+                    "email": "eaglemike7@gmail.com"
+                }
+            ],
+            "description": "A Laravel repository pattern implementation for Eloquent models with caching and query utilities",
+            "support": {
+                "issues": "https://github.com/Lordeagle4/datasource/issues",
+                "source": "https://github.com/Lordeagle4/datasource/tree/1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/awtechs",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-09-04T16:33:14+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.13.1",
