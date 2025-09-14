@@ -1,9 +1,9 @@
 @extends('layouts.app')
-<div>
 @section('content')
+<div>
 <form action="{{ URL('/') }}" method="GET">
   <div class="search">
-    <input type="search" placeholder="Filter ...">
+    <input name="search" type="search" placeholder="Filter ..." value="{{ request('search') }}">
     <button> Search </button>
   </div>
 </form>
@@ -36,5 +36,12 @@
                     </tr>
                   
 </tbody>
-@endsection
+</table>
+<div class="pagination">
+  {{ $students->
+  appends(request()->query())
+  ->links('pagination::tailwind') }}
 </div>
+</div>
+
+@endsection

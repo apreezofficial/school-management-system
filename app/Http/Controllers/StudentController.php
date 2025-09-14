@@ -13,22 +13,13 @@ class StudentController extends Controller
     return $item;
   }
   public function index(Request $request){
-  //  $items = DB::table('students')
-   // ->where(function ($query){
-   //   $query->whereAll(['age', 'id', 'user_id'], '>=', 0);
-   // })
- //   ->where('id', '>', 2)
-  //  ->orwhere('id', '=', 1)
-   // ->get();
-  //  return $items;
-//  $item = Student::onlyTrashed()->get();
-//$item = Student::withTrashed()->get();
-  $students = Student::when($request->search, function($query){
-    return $query->whereAny([
-      'name',
-      'email'
-      ]);
-  });
+$query =  $request->query('search', '');
+  $students = DB::table('students')->whereAny([
+    'id',
+    'name',
+    'email',
+    'age',
+    ], 'like', '%' . $query . '%')->Paginate(1);
   return view('student.index', compact('students'));
   }
   public function restore(){
